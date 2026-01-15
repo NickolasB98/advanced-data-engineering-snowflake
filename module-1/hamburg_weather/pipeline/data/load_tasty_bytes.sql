@@ -296,13 +296,13 @@ USE WAREHOUSE demo_build_wh;
 -- country table load
 COPY INTO {{env}}_tasty_bytes.raw_pos.country
 (
+   country_id,      -- Put ID first to match the numeric data
    country,
-   country_id,
    iso_currency,
    iso_country,
-   city_id,
    city,
-   city_population
+   city_population,
+   city_id
 )
 FROM @{{env}}_tasty_bytes.public.s3load/raw_pos/country/;
 
